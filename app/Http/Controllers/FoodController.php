@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
 use App\Models\FoodUser;
+use Validator;
 
 class FoodController extends Controller
-{
+{   
     public function list(Request $request){
 
         $params = $request->all();
@@ -74,35 +75,43 @@ class FoodController extends Controller
         }
 
         $params = $validator->validated();
+        $food_id = $params['food_id'];
+        $user_id = $request->user()->id;
 
-        $existente = FoodUser::where('user_id',$user_id)->where('food_id')->exists();
+        $seleccionado = FoodUser::where('user_id',$user_id)->where('food_id',$food_id)->get()->first();
 
-        if($existente){
-            $existente->status = 1;
-            $existente->save();
+        $errors = [];
+
+        if($seleccionado){
+            $seleccionado->status = 1;
+            $seleccionado->save();
         }else{
-
             $valores = [
-                'user_id' => $request->user()->id,
+                'user_id' => $user_id,
                 'food_id' => $params['food_id']
             ];
 
             $food_user = FoodUser::create($valores);
+
+            if(!$food_user){
+                $errors = [...$errors,'Hubo un error al asignar la comida'];
+            }
         }
 
-        if($food_user){
+        if(!empty($errors)){
             $result = [
-                'data' => [
-                    'message' => 'Comida asignada correctamente'
-                ]
+                'errors' => $errors
             ];
-            return response()->json($result,200);
-        }else{
-            $result = [
-                'errors' => ['Hubo un error al asignar la comida']
-            ];
-            return response()->json($result,500);
+            return response()->json($errors,500);
         }
+        
+        $result = [
+            'data' => [
+                'message' => 'Comida asignada correctamente'
+            ]
+        ];
+        return response()->json($result,200);
+        
         
     }
 
@@ -121,19 +130,22 @@ class FoodController extends Controller
         $user_id = $request->user()->id;
         $food_id = $params['food_id'];
 
-        $existente = FoodUser::where('user_id',$user_id)->where('food_id')->exists();
+        $seleccionado = FoodUser::where('user_id',$user_id)->where('food_id',$food_id)->get()->first();
 
-        if(!$existente){
+        $errors = [];
+        if(!$seleccionado){
+            $errors = [...$errors,'La comida no está asignada'];
+        }
+
+        if(!empty($errors)){
             $result = [
-                'errors' => ['La comida no está asignada']
+                'errors' => $errors
             ];
-
             return response()->json($result,409);
-            
         }
         
-        $existente->status = 0;
-        $existente->save();
+        $seleccionado->status = 0;
+        $seleccionado->save();
 
         $result = [
             'data' => [
