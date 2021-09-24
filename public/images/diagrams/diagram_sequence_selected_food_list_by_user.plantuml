@@ -1,0 +1,24 @@
+@startuml selected food list
+
+actor "Actor"
+boundary "api"
+control "FoodController"
+entity "Food"
+database "food_user"
+
+"Actor" ->  "api" : /api/food/list_of_user
+activate api
+"api" ->  "FoodController" : list()
+activate FoodController
+"FoodController" ->  "Food" : scopeList()
+activate Food
+"Food" ->  "food_user" : select
+activate food_user
+"food_user" --> "Food" : data
+deactivate food_user
+"Food" --> "FoodController": data
+deactivate Food
+"FoodController" --> "api" : return data with status HTTP 200
+deactivate FoodController
+deactivate api
+@enduml

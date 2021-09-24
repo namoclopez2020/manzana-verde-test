@@ -17,7 +17,7 @@ class FoodController extends Controller
         $per_page = isset($params['per_page']) ?  $params['per_page'] : 10;
         $per_page = is_numeric($per_page) ? (int) $per_page : 10;
 
-        $current_page = isset($params['current_page']) ?  $params['current_page'] : 1;
+        $current_page = isset($params['page']) ?  $params['page'] : 1;
         $current_page = is_numeric($current_page) ? (int) $current_page : 1;
 
         $filtro = [
@@ -44,7 +44,7 @@ class FoodController extends Controller
         $per_page = isset($params['per_page']) ?  $params['per_page'] : 10;
         $per_page = is_numeric($per_page) ? (int) $per_page : 10;
 
-        $current_page = isset($params['current_page']) ?  $params['current_page'] : 1;
+        $current_page = isset($params['page']) ?  $params['page'] : 1;
         $current_page = is_numeric($current_page) ? (int) $current_page : 1;
 
         $filtro = [

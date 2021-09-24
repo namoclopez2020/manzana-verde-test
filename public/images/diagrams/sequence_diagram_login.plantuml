@@ -1,0 +1,25 @@
+@startuml login
+
+actor "Actor"
+boundary "api"
+control "AuthController"
+entity "User"
+database "users"
+
+"Actor" ->  "api" : /api/auth/login
+activate api
+"api" ->  "AuthController" : login()
+activate AuthController
+"AuthController" ->  "AuthController" : FormValidation()
+"AuthController" ->  "User" : attempt()
+activate User
+"User" -> "users" : select
+activate users
+"User" <-- "users" : resultado
+deactivate users
+"AuthController" <--  "User" : retorna mensaje
+deactivate User
+"api" <--  "AuthController" : retorna mensaje (HTTP 200)
+deactivate AuthController
+deactivate api
+@enduml

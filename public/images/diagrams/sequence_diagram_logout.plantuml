@@ -1,0 +1,20 @@
+@startuml logout
+
+actor "Actor"
+boundary "api"
+control "AuthController"
+entity "User"
+
+"Actor" ->  "api" : /api/auth/logout
+activate api
+"api" ->  "AuthController" : logout()
+activate AuthController
+"AuthController" ->  "AuthController" : TokenValidation()
+"AuthController" -> "User" : logout()
+activate User 
+"AuthController" <--  "User" : retorna mensaje
+deactivate User
+"api" <--  "AuthController" : retorna mensaje (HTTP 200)
+deactivate AuthController
+deactivate api
+@enduml

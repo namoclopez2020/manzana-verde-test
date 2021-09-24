@@ -1,0 +1,34 @@
+
+@startuml manzana_verde
+
+class User{
+    Integer id
+    String name
+    String email
+    String password
+
+    Public create()
+    Public update()
+}
+class Food{
+    String name
+    String description
+    String picture
+    Boolean status
+
+    Public create()
+    Public update()
+}
+class FoodUser{
+    Integer food_id
+    Integer user_id
+
+    Public create()
+    Public update()
+    Public delete()
+}
+
+User --{ FoodUser 
+Food --{ FoodUser 
+
+@enduml

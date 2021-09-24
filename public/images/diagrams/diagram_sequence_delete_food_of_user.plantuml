@@ -1,0 +1,25 @@
+@startuml delete food assigned
+
+actor "Actor"
+boundary "api"
+control "FoodController"
+entity "Food"
+database "food_user"
+
+"Actor" ->  "api" : /api/food/delete
+activate api
+"api" -> "FoodController" : delete()
+activate FoodController
+"FoodController" ->  "FoodController" : FormValidation()
+"FoodController" ->  "Food" : update()
+activate Food
+"Food" ->  "food_user" : update
+activate food_user
+"food_user" --> "Food" : data
+deactivate food_user
+"Food" --> "FoodController": data
+deactivate Food
+"FoodController" --> "api" : return data with status HTTP 200
+deactivate FoodController
+deactivate api
+@enduml
