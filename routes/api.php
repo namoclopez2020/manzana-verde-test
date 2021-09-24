@@ -21,5 +21,9 @@ Route::group([
     Route::post('login',  [App\Http\Controllers\AuthController::class, 'login']);
     Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
     Route::get('logout', [App\Http\Controllers\AuthController::class, 'logout']);
+    Route::get('food/list',  [App\Http\Controllers\FoodController::class, 'list']);
+    Route::get('food/list_of_user',  [App\Http\Controllers\FoodController::class, 'listOfUser']);
+    Route::post('food/assign',  [App\Http\Controllers\FoodController::class, 'assign']);
+    Route::post('food/delete',  [App\Http\Controllers\FoodController::class, 'delete']);
 });
 

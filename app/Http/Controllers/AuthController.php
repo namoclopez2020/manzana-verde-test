@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Validator;
+use Illuminate\Support\Facades\Hash;
 
 
 class AuthController extends Controller
@@ -59,7 +60,7 @@ class AuthController extends Controller
 
         $user = User::create(array_merge(
                     $validator->validated(),
-                    ['password' => bcrypt($request->password)]
+                    ['password' => Hash::make($request->password)]
                 ));
 
         if (! $token = auth()->attempt($validator->validated())) {
@@ -67,11 +68,7 @@ class AuthController extends Controller
         }
 
         return $this->createNewToken($token);
-
-        // return response()->json([
-        //     'message' => 'User successfully registered',
-        //     'user' => $user
-        // ], 201);
+        
     }
 
 

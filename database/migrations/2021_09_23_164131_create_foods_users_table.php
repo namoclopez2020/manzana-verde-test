@@ -13,12 +13,13 @@ class CreateFoodsUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('foods_users', function (Blueprint $table) {
+        Schema::create('food_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('foods_id');
-            $table->foreign('foods_id')->references('id')->on('foods');
-            $table->integer('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->integer('food_id');
+            $table->foreign('food_id')->references('id')->on('foods');
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateFoodsUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('foods_users');
+        Schema::dropIfExists('food_user');
     }
 }
