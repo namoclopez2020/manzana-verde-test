@@ -331,7 +331,7 @@ axiosIns.get('/api/food/list?per_page=10&current_page=1')
                                     <br>
                                     <hr>
                                     <div class="text-lg leading-7 font-semibold">
-                                        /api/list (GET) // Para listar las comidas sin asignar por el usuario
+                                        /api/food/list (GET) // Para listar las comidas sin asignar por el usuario
                                     </div>
                                     <div class="flex items-center">
                                         <div class="ml-4 text-base leading-7 font-semibold">
@@ -403,7 +403,7 @@ axiosIns.get('/api/food/list?per_page=10&current_page=1')
                                     <br>
                                     <hr>
                                     <div class="text-lg leading-7 font-semibold">
-                                        /api/list_of_user (GET) // Para listar las comidas asignadas por el usuario
+                                        /api/food/list_of_user (GET) // Para listar las comidas asignadas por el usuario
                                     </div>
                                     <div class="flex items-center">
                                         <div class="ml-4 text-base leading-7 font-semibold">
@@ -475,7 +475,7 @@ axiosIns.get('/api/food/list?per_page=10&current_page=1')
                                     <br>
                                     <hr>
                                     <div class="text-lg leading-7 font-semibold">
-                                        /api/auth/assign (POST) // Para asignar una comida a un usuario
+                                        /api/food/assign (POST) // Para asignar una comida a un usuario
                                     </div>
                                     <div class="flex items-center">
                                         <div class="ml-4 text-base leading-7 font-semibold">
@@ -502,7 +502,7 @@ axiosIns.get('/api/food/list?per_page=10&current_page=1')
                                     <br>
                                     <hr>
                                     <div class="text-lg leading-7 font-semibold">
-                                        /api/auth/delete (POST) // Para remover una comida de la lista de seleccionados
+                                        /api/food/delete (POST) // Para remover una comida de la lista de seleccionados
                                     </div>
                                     <div class="flex items-center">
                                         <div class="ml-4 text-base leading-7 font-semibold">
