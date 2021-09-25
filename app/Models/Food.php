@@ -28,7 +28,7 @@ class Food extends Model
         $seleccionados = $params['seleccionados'];
 
         $data = $query->select([
-            'id',
+            'foods.id',
             'name',
             'picture',
             'description'
