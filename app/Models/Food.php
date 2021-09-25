@@ -41,19 +41,21 @@ class Food extends Model
 
        
         $data = $query->select([
-            'id',
+            'foods.id',
             'name',
             'picture',
             'description'
         ]);
 
         if($seleccionados){
-            $data = $data->whereIn('id',$new_asignadas);
+            $data = $data->leftJoin('food_user AS f_u','f_u.food_id','foods.id')
+            ->whereIn('foods.id',$new_asignadas)
+            ->where('user_id',$user_id)
+            ->orderBy('f_u.updated_at','desc');
         }else{
             $data = $data->whereNotIn('id',$new_asignadas);
         }
         
-       
         $data = $data->paginate(
             $per_page, // per page (may be get it from request)
             ['*'], // columns to select from table (default *, means all fields)
