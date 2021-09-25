@@ -248,7 +248,8 @@ axiosIns.get('/api/food/list?per_page=10&current_page=1')
     {
         name  : 'prueba',
         email : 'prueba@gmail.com',
-        password : '123456'
+        password : '123456',
+        c_password: '123456'
     }
 </code>
                                             </pre>
