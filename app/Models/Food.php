@@ -43,6 +43,7 @@ class Food extends Model
                 ->orWhere('f_u.status',0);
             });
         }
+        $data= $data->groupBy('foods.id');
            
         $data = $data->paginate(
             $per_page, // per page (may be get it from request)
