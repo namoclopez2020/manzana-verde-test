@@ -40,7 +40,8 @@ class Food extends Model
         }else{
             $data = $data->where(function ($query) use ($user_id){
                 $query->where('f_u.user_id','!=',$user_id)
-                ->orWhere('f_u.status',0);
+                ->orWhere('f_u.status',0)
+                ->orWhere('f_u.id',null);
             });
         }
         $data= $data->groupBy('foods.id');
