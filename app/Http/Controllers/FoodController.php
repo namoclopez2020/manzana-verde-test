@@ -83,6 +83,13 @@ class FoodController extends Controller
         $errors = [];
 
         if($seleccionado){
+            if($seleccionado->status == 1){
+                $errors = [...$errors,'La comida ya ha sido asignada'];
+                $result = [
+                    'errors' => $errors
+                ];
+                return response()->json($result,409);
+            }
             $seleccionado->status = 1;
             $seleccionado->save();
         }else{
@@ -135,6 +142,9 @@ class FoodController extends Controller
         $errors = [];
         if(!$seleccionado){
             $errors = [...$errors,'La comida no está asignada'];
+        }
+        if($seleccionado->status == 0){
+            $errors = [...$errors,'La comida ya fue removida de la lista de asignadas'];
         }
 
         if(!empty($errors)){
