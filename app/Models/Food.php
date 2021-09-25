@@ -27,7 +27,10 @@ class Food extends Model
         $current_page = is_numeric($current_page) ? (int) $current_page : 1;
         $seleccionados = $params['seleccionados'];
 
-        $asignadas = FoodUser::select('food_id')->where('user_id',$user_id)->groupBy('food_id')->get()->toArray();
+        $asignadas = FoodUser::select('food_id')
+        ->where('user_id',$user_id)
+        ->where('status',1)
+        ->groupBy('food_id')->get()->toArray();
 
         $new_asignadas = [];
         if(!empty($asignadas)){
