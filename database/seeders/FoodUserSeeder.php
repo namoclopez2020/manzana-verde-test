@@ -19,7 +19,7 @@ class FoodUserSeeder extends Seeder
         $users = User::pluck('id');
         $foods = Food::pluck('id');
 
-        for($i = 1 ; $i <= 200 ; $i++){
+        for($i = 1 ; $i <= 30; $i++){
             $user_id = $users->random();
             $food_id = $foods->random();
 
