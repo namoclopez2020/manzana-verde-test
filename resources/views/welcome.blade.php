@@ -207,7 +207,7 @@
 const axiosIns = axios.create({
     mode: 'cors',
     cache: 'no-cache', 
-    baseURL: 'https://josenamoclopez2020-manzana-verde-api.herokuapp.com/',
+    baseURL: 'https://josenamoc-manzana-verde-api.herokuapp.com/',
     headers: {
         'Content-Type' : 'application/x-www-form-urlencoded',
         Accept : 'application/json',
@@ -315,7 +315,7 @@ axiosIns.get('/api/food/list?per_page=10&current_page=1')
                                     </div>
                                     <div class="flex items-center">
                                         <div class="ml-4 text-base leading-7 font-semibold">
-                                            Ejemplo de URL: <code>https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/logout</code>
+                                            Ejemplo de URL: <code>https://josenamoc-manzana-verde-api.herokuapp.com/api/logout</code>
                                             <br>
                                             Response:
                                             <pre>
@@ -339,7 +339,7 @@ axiosIns.get('/api/food/list?per_page=10&current_page=1')
                                                 <li>per_page (cantidad de items por página)</li>
                                                 <li>page (Página actual)</li>
                                             </ul>
-                                            Ejemplo de URL: <code>https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list?per_page=10&amp;page=3</code>
+                                            Ejemplo de URL: <code>https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list?per_page=10&amp;page=3</code>
                                             <br>
                                             Response:
                                             <pre>
@@ -360,23 +360,23 @@ axiosIns.get('/api/food/list?per_page=10&current_page=1')
                         "description": "Itaque et praesentium repellendus facere laborum assumenda. Soluta quia placeat nihil officiis recusandae quia neque. Et possimus sunt repudiandae nam iure."
                     }
                 ],
-                "first_page_url": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list?page=1",
+                "first_page_url": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list?page=1",
                 "from": 21,
                 "last_page": 19,
-                "last_page_url": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list?page=19",
+                "last_page_url": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list?page=19",
                 "links": [
                     {
-                        "url": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list?page=2",
+                        "url": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list?page=2",
                         "label": "&laquo; Previous",
                         "active": false
                     },
                     {
-                        "url": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list?page=1",
+                        "url": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list?page=1",
                         "label": "1",
                         "active": false
                     },
                     {
-                        "url": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list?page=2",
+                        "url": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list?page=2",
                         "label": "2",
                         "active": false
                     },
@@ -411,7 +411,7 @@ axiosIns.get('/api/food/list?per_page=10&current_page=1')
                                                 <li>per_page (cantidad de items por página)</li>
                                                 <li>page (Página actual)</li>
                                             </ul>
-                                            Ejemplo de URL: <code>https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list_of_user?per_page=10&amp;page=3</code>
+                                            Ejemplo de URL: <code>https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list_of_user?per_page=10&amp;page=3</code>
                                             <br>
                                             Response:
                                             <pre>
@@ -432,23 +432,23 @@ axiosIns.get('/api/food/list?per_page=10&current_page=1')
                         "description": "Itaque et praesentium repellendus facere laborum assumenda. Soluta quia placeat nihil officiis recusandae quia neque. Et possimus sunt repudiandae nam iure."
                     }
                 ],
-                "first_page_url": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list_of_user?page=1",
+                "first_page_url": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list_of_user?page=1",
                 "from": 21,
                 "last_page": 19,
-                "last_page_url": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list_of_user?page=19",
+                "last_page_url": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list_of_user?page=19",
                 "links": [
                     {
-                        "url": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list_of_user?page=2",
+                        "url": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list_of_user?page=2",
                         "label": "&laquo; Previous",
                         "active": false
                     },
                     {
-                        "url": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list_of_user?page=1",
+                        "url": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list_of_user?page=1",
                         "label": "1",
                         "active": false
                     },
                     {
-                        "url": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list_of_user?page=2",
+                        "url": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list_of_user?page=2",
                         "label": "2",
                         "active": false
                     },
