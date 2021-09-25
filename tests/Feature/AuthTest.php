@@ -42,7 +42,8 @@ class AuthTest extends TestCase
         $values = [
             "email" => "user@mail.com",
             "name" => "test",
-            "password" => '123456'
+            "password" => '123456',
+            "c_password" => '123456'
         ];
 
         $response = $this->post('/api/auth/register', $values);
@@ -93,7 +94,7 @@ class AuthTest extends TestCase
         $response = $this->post('/api/auth/login', $credentials);
         $response->assertStatus(422)->assertJson([
             "email" => [
-                "The email field is required."
+                "El campo email es obligatorio."
             ]
         ]);
         
@@ -119,7 +120,7 @@ class AuthTest extends TestCase
         $response = $this->post('/api/auth/login', $credentials);
         $response->assertStatus(422)->assertJson([
             "password" => [
-                "The password field is required."
+                "El campo password es obligatorio."
             ]
         ]);
        
