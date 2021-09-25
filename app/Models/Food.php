@@ -42,8 +42,14 @@ class Food extends Model
             'name',
             'picture',
             'description'
-        ])
-        ->whereNotIn('id',$new_asignadas);
+        ]);
+
+        if($seleccionados){
+            $data = $data->whereIn('id',$new_asignadas);
+        }else{
+            $data = $data->whereNotIn('id',$new_asignadas);
+        }
+        
        
         $data = $data->paginate(
             $per_page, // per page (may be get it from request)
