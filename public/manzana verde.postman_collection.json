@@ -45,10 +45,10 @@
 							]
 						},
 						"url": {
-							"raw": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/auth/login",
+							"raw": "https://josenamoc-manzana-verde-api.herokuapp.com/api/auth/login",
 							"protocol": "https",
 							"host": [
-								"josenamoclopez2020-manzana-verde-api",
+								"josenamoc-manzana-verde-api",
 								"herokuapp",
 								"com"
 							],
@@ -98,10 +98,10 @@
 							]
 						},
 						"url": {
-							"raw": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/auth/register",
+							"raw": "https://josenamoc-manzana-verde-api.herokuapp.com/api/auth/register",
 							"protocol": "https",
 							"host": [
-								"josenamoclopez2020-manzana-verde-api",
+								"josenamoc-manzana-verde-api",
 								"herokuapp",
 								"com"
 							],
@@ -130,10 +130,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/auth/logout",
+							"raw": "https://josenamoc-manzana-verde-api.herokuapp.com/api/auth/logout",
 							"protocol": "https",
 							"host": [
-								"josenamoclopez2020-manzana-verde-api",
+								"josenamoc-manzana-verde-api",
 								"herokuapp",
 								"com"
 							],
@@ -167,10 +167,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list?per_page=10&page=3",
+							"raw": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list?per_page=10&page=3",
 							"protocol": "https",
 							"host": [
-								"josenamoclopez2020-manzana-verde-api",
+								"josenamoc-manzana-verde-api",
 								"herokuapp",
 								"com"
 							],
@@ -219,10 +219,10 @@
 							]
 						},
 						"url": {
-							"raw": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/assign",
+							"raw": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/assign",
 							"protocol": "https",
 							"host": [
-								"josenamoclopez2020-manzana-verde-api",
+								"josenamoc-manzana-verde-api",
 								"herokuapp",
 								"com"
 							],
@@ -268,10 +268,10 @@
 							]
 						},
 						"url": {
-							"raw": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/delete",
+							"raw": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/delete",
 							"protocol": "https",
 							"host": [
-								"josenamoclopez2020-manzana-verde-api",
+								"josenamoc-manzana-verde-api",
 								"herokuapp",
 								"com"
 							],
@@ -300,10 +300,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://josenamoclopez2020-manzana-verde-api.herokuapp.com/api/food/list_of_user?per_page=10&page=3",
+							"raw": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/list_of_user?per_page=10&page=3",
 							"protocol": "https",
 							"host": [
-								"josenamoclopez2020-manzana-verde-api",
+								"josenamoc-manzana-verde-api",
 								"herokuapp",
 								"com"
 							],
