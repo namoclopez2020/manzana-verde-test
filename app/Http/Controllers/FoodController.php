@@ -317,6 +317,7 @@ class FoodController extends Controller
         $response = $picture->search(['query' => $params['food'] ,'per_page' => 1000]);
 
         $image = null;
+        $fotos = $response['data']['photos'];
         if(!empty($fotos)){
             $image = $response['data']['photos'][random_int(0,count($fotos) - 1)];
         }
