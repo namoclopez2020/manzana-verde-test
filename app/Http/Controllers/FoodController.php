@@ -72,12 +72,31 @@ class FoodController extends Controller
         ]);
 
         if($validator->fails()){
-            return response()->json($validator->errors()->toJson(), 422);
+            return response()->json($validator->errors(), 422);
         }
 
         $params = $validator->validated();
         $food_id = $params['food_id'];
         $user_id = $request->user()->id;
+
+        $per_page_selected = 10;
+        $current_page_selected = 1;
+        $per_page_unselected = 10;
+        $current_page_unselected = 1;
+
+        if(isset($request['lists'])){
+            $per_page_selected = isset($request['lists']['selected']['per_page']) ?  $request['lists']['selected']['per_page'] : 10;
+            $per_page_selected = is_numeric($per_page_selected) ? (int) $per_page_selected : 10;
+
+            $current_page_selected = isset($request['lists']['selected']['page']) ?  $request['lists']['selected']['page'] : 1;
+            $current_page_selected = is_numeric($current_page_selected) ? (int) $current_page_selected : 1;
+
+            $per_page_unselected = isset($request['lists']['notSelected']['per_page']) ?  $request['lists']['notSelected']['per_page'] : 10;
+            $per_page_unselected = is_numeric($per_page_unselected) ? (int) $per_page_unselected : 10;
+
+            $current_page_unselected = isset($request['lists']['notSelected']['page']) ?  $request['lists']['notSelected']['page'] : 1;
+            $current_page_unselected = is_numeric($current_page_unselected) ? (int) $current_page_unselected : 1;
+        }
 
         $seleccionado = FoodUser::where('user_id',$user_id)->where('food_id',$food_id)->get()->first();
 
@@ -113,9 +132,32 @@ class FoodController extends Controller
             return response()->json($errors,500);
         }
         
+        $filtro_unselected_foods = [
+            'per_page' => $per_page_unselected,
+            'current_page' => $current_page_unselected,
+            'user_id' => $request->user()->id,
+            'seleccionados' => false
+        ];
+
+        $foods_unselected = Food::list($filtro_unselected_foods);
+
+
+        $filtro_selected_foods = [
+            'per_page' => $current_page_selected,
+            'current_page' => $current_page_selected,
+            'user_id' => $request->user()->id,
+            'seleccionados' => true
+        ];
+
+        $foods_selected = Food::list($filtro_selected_foods);
+        
         $result = [
             'data' => [
-                'message' => 'Comida asignada correctamente'
+                'message' => 'Comida asignada correctamente',
+                'lists' => [
+                    'unselected' => $foods_unselected,
+                    'selected' => $foods_selected
+                ]
             ]
         ];
         return response()->json($result,200);
@@ -130,13 +172,32 @@ class FoodController extends Controller
         ]);
 
         if($validator->fails()){
-            return response()->json($validator->errors()->toJson(), 422);
+            return response()->json($validator->errors(), 422);
         }
 
         $params = $validator->validated();
 
         $user_id = $request->user()->id;
         $food_id = $params['food_id'];
+
+        $per_page_selected = 10;
+        $current_page_selected = 1;
+        $per_page_unselected = 10;
+        $current_page_unselected = 1;
+
+        if(isset($request['lists'])){
+            $per_page_selected = isset($request['lists']['selected']['per_page']) ?  $request['lists']['selected']['per_page'] : 10;
+            $per_page_selected = is_numeric($per_page_selected) ? (int) $per_page_selected : 10;
+
+            $current_page_selected = isset($request['lists']['selected']['page']) ?  $request['lists']['selected']['page'] : 1;
+            $current_page_selected = is_numeric($current_page_selected) ? (int) $current_page_selected : 1;
+
+            $per_page_unselected = isset($request['lists']['notSelected']['per_page']) ?  $request['lists']['notSelected']['per_page'] : 10;
+            $per_page_unselected = is_numeric($per_page_unselected) ? (int) $per_page_unselected : 10;
+
+            $current_page_unselected = isset($request['lists']['notSelected']['page']) ?  $request['lists']['notSelected']['page'] : 1;
+            $current_page_unselected = is_numeric($current_page_unselected) ? (int) $current_page_unselected : 1;
+        }
 
         $seleccionado = FoodUser::where('user_id',$user_id)->where('food_id',$food_id)->get()->first();
 
@@ -159,9 +220,32 @@ class FoodController extends Controller
         $seleccionado->status = 0;
         $seleccionado->save();
 
+        $filtro_unselected_foods = [
+            'per_page' => $per_page_unselected,
+            'current_page' => $current_page_unselected,
+            'user_id' => $request->user()->id,
+            'seleccionados' => false
+        ];
+
+        $foods_unselected = Food::list($filtro_unselected_foods);
+
+
+        $filtro_selected_foods = [
+            'per_page' => $current_page_selected,
+            'current_page' => $current_page_selected,
+            'user_id' => $request->user()->id,
+            'seleccionados' => true
+        ];
+
+        $foods_selected = Food::list($filtro_selected_foods);
+
         $result = [
             'data' => [
-                'message' => 'Comida removida de la lista correctamente'
+                'message' => 'Comida removida de la lista correctamente',
+                'lists' => [
+                    'unselected' => $foods_unselected,
+                    'selected' => $foods_selected
+                ]
             ]
         ];
         return response()->json($result,200);
@@ -177,7 +261,7 @@ class FoodController extends Controller
         ]);
 
         if($validator->fails()){
-            return response()->json($validator->errors()->toJson(), 422);
+            return response()->json($validator->errors(), 422);
         }
 
         $params = $validator->validated();
@@ -200,16 +284,17 @@ class FoodController extends Controller
         ]);
 
         if($validator->fails()){
-            return response()->json($validator->errors()->toJson(), 422);
+            return response()->json($validator->errors(), 422);
         }
 
         $params = $validator->validated();
 
         $picture = new Picture;
 
-        $response = $picture->search(['query' => $params['food'] ,'per_page' => 1]);
+        $response = $picture->search(['query' => $params['food'] ,'per_page' => 1000]);
 
-        $foto_url = $response['data']['photos'][0];
+        $fotos = $response['data']['photos'];
+        $foto_url = $response['data']['photos'][random_int(0,count($fotos) - 1)];
 
         $result = [
             'data' => [
