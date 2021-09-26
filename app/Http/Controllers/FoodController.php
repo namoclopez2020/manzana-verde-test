@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Food;
 use App\Models\FoodUser;
 use Validator;
+use App\Models\Picture;
 
 class FoodController extends Controller
 {   
@@ -165,5 +166,58 @@ class FoodController extends Controller
         ];
         return response()->json($result,200);
         
+    }
+
+    public function create(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'description' => 'required',
+            'picture' => 'required|url',
+        ]);
+
+        if($validator->fails()){
+            return response()->json($validator->errors()->toJson(), 422);
+        }
+
+        $params = $validator->validated();
+
+        $food = Food::create($params);
+
+        $result = [
+            'data' => [
+                'message' => 'Comida creada correctamente'
+            ]
+        ];
+        return response()->json($result,200);
+
+    }
+
+    public function generateImage(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'food' => 'required',
+        ]);
+
+        if($validator->fails()){
+            return response()->json($validator->errors()->toJson(), 422);
+        }
+
+        $params = $validator->validated();
+
+        $picture = new Picture;
+
+        $response = $picture->search(['query' => $params['food'] ,'per_page' => 1]);
+
+        $foto_url = $response['data']['photos'][0];
+
+        $result = [
+            'data' => [
+                'image_url' => $foto_url
+            ]
+        ];
+
+        return response()->json($result,200);
+
     }
 }

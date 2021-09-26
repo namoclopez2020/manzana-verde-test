@@ -31,4 +31,6 @@ Route::group([
     Route::get('food/list_of_user',  [App\Http\Controllers\FoodController::class, 'listOfUser']);
     Route::post('food/assign',  [App\Http\Controllers\FoodController::class, 'assign']);
     Route::post('food/delete',  [App\Http\Controllers\FoodController::class, 'delete']);
+    Route::post('food/create',  [App\Http\Controllers\FoodController::class, 'create']);
+    Route::get('food/generate_image',  [App\Http\Controllers\FoodController::class, 'generateImage']);
 });
