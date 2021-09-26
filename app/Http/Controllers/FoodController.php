@@ -143,7 +143,7 @@ class FoodController extends Controller
 
 
         $filtro_selected_foods = [
-            'per_page' => $current_page_selected,
+            'per_page' => $per_page_selected,
             'current_page' => $current_page_selected,
             'user_id' => $request->user()->id,
             'seleccionados' => true
@@ -231,7 +231,7 @@ class FoodController extends Controller
 
 
         $filtro_selected_foods = [
-            'per_page' => $current_page_selected,
+            'per_page' => $per_page_selected,
             'current_page' => $current_page_selected,
             'user_id' => $request->user()->id,
             'seleccionados' => true
