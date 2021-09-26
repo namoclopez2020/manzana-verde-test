@@ -123,6 +123,24 @@
                                     <li>Laravel 8</li>
                                     <li>Php 8</li>
                                     <li>Postgresql 12.8</li>
+                                    <li>JWT</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    <div class="">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="text-lg leading-7 font-semibold">
+                                    - Entorno donde fue testeado:
+                                </div>
+                            </div>
+                            <div class="ml-12">
+                                <ul>
+                                    <li>composer 2.0.8</li>
+                                    <li>Linux Mint 20</li>
                                 </ul>
                             </div>
                         </div>
