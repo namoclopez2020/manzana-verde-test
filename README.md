@@ -41,6 +41,22 @@ PEXEL_API_KEY=QAo8taa2TXM110mB3U85JohTb2W3kZTphIW1XVleCandO2H0YnTYwD3O33ZpERE0
 composer install
 ```
 
+### Limpiar cache
+```
+php artisan optimize
+```
+
+### ejecutar migraciones y seeders
+```
+php artisan migrate --seed
+```
+
+### ejecutar tests
+```
+php artisan test
+```
+
+
 ### Arrancar el servidor
 ```
 php artisan serve
