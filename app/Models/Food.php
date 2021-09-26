@@ -53,7 +53,8 @@ class Food extends Model
             ->where('user_id',$user_id)
             ->orderBy('f_u.updated_at','desc');
         }else{
-            $data = $data->whereNotIn('id',$new_asignadas);
+            $data = $data->whereNotIn('id',$new_asignadas)
+            ->orderBy('id','desc');
         }
         
         $data = $data->paginate(
