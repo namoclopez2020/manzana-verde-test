@@ -134,6 +134,8 @@ return [
     |
     */
 
+    'PEXEL_API_KEY' => env('PEXEL_API_KEY',''),
+
     'providers' => [
 
         /*

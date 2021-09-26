@@ -142,10 +142,11 @@ class FoodController extends Controller
         $errors = [];
         if(!$seleccionado){
             $errors = [...$errors,'La comida no está asignada'];
-        }
-        if($seleccionado->status == 0){
-            $errors = [...$errors,'La comida ya fue removida de la lista de asignadas'];
-        }
+        }else{
+            if($seleccionado->status == 0){
+                $errors = [...$errors,'La comida ya fue removida de la lista de asignadas'];
+            }
+        } 
 
         if(!empty($errors)){
             $result = [
