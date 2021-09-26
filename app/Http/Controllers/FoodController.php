@@ -213,7 +213,7 @@ class FoodController extends Controller
 
         $result = [
             'data' => [
-                'image_url' => $foto_url
+                'image' => $foto_url
             ]
         ];
 
