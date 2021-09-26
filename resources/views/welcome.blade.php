@@ -115,6 +115,24 @@
                         <div class="p-6">
                             <div class="flex items-center">
                                 <div class="text-lg leading-7 font-semibold">
+                                    - Tecnologias utilizadas:
+                                </div>
+                            </div>
+                            <div class="ml-12">
+                                <ul>
+                                    <li>Laravel 8</li>
+                                    <li>Php 8</li>
+                                    <li>Postgresql 12.8</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    <div class="">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="text-lg leading-7 font-semibold">
                                     - Diagrama de clases:
                                 </div>
                             </div>
