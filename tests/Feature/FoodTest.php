@@ -83,7 +83,7 @@ class FoodTest extends TestCase
 
         $response->assertStatus(200)->assertJson(fn (AssertableJson $json) =>
             $json->whereAllType([
-                'data.image' => 'array',
+                'data.image' => 'array|null',
             ])
         );
 
