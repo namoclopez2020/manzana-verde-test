@@ -54,7 +54,7 @@ class Food extends Model
             ->orderBy('f_u.updated_at','desc');
         }else{
             $data = $data->whereNotIn('id',$new_asignadas)
-            ->orderBy('created_at','desc');
+            ->orderBy('id','desc');
         }
         
         $data = $data->paginate(
