@@ -316,12 +316,14 @@ class FoodController extends Controller
 
         $response = $picture->search(['query' => $params['food'] ,'per_page' => 1000]);
 
-        $fotos = $response['data']['photos'];
-        $foto_url = $response['data']['photos'][random_int(0,count($fotos) - 1)];
+        $image = null;
+        if(!empty($fotos)){
+            $image = $response['data']['photos'][random_int(0,count($fotos) - 1)];
+        }
 
         $result = [
             'data' => [
-                'image' => $foto_url
+                'image' => $image
             ]
         ];
 
