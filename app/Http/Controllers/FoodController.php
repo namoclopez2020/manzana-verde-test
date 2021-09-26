@@ -268,9 +268,32 @@ class FoodController extends Controller
 
         $food = Food::create($params);
 
+        $per_page_unselected = 10;
+        $current_page_unselected = 1;
+
+        if(isset($request['lists'])){
+            $per_page_unselected = isset($request['lists']['notSelected']['per_page']) ?  $request['lists']['notSelected']['per_page'] : 10;
+            $per_page_unselected = is_numeric($per_page_unselected) ? (int) $per_page_unselected : 10;
+
+            $current_page_unselected = isset($request['lists']['notSelected']['page']) ?  $request['lists']['notSelected']['page'] : 1;
+            $current_page_unselected = is_numeric($current_page_unselected) ? (int) $current_page_unselected : 1;
+        }
+
+        $filtro_unselected_foods = [
+            'per_page' => $per_page_unselected,
+            'current_page' => $current_page_unselected,
+            'user_id' => $request->user()->id,
+            'seleccionados' => false
+        ];
+
+        $foods_unselected = Food::list($filtro_unselected_foods);
+
         $result = [
             'data' => [
-                'message' => 'Comida creada correctamente'
+                'message' => 'Comida creada correctamente',
+                'lists' => [
+                    'unselected' => $foods_unselected
+                ]
             ]
         ];
         return response()->json($result,200);
