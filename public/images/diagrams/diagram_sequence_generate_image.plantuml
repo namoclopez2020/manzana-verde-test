@@ -1,0 +1,25 @@
+@startuml delete food assigned
+
+actor "Actor"
+boundary "api"
+control "FoodController"
+entity "Picture"
+boundary "imageApi"
+
+"Actor" ->  "api" : /api/food/generate_image
+activate api
+"api" -> "FoodController" : generateImage()
+activate FoodController
+"FoodController" ->  "FoodController" : FormValidation()
+activate Picture
+"FoodController" ->  "Picture" : search()
+"Picture" -> "imageApi" : HTTP request (GET)
+activate imageApi
+"imageApi" --> "Picture" : data
+deactivate imageApi
+"Picture" --> "FoodController" : data
+deactivate Picture
+"FoodController" --> "api" : return data with status HTTP 200
+deactivate FoodController
+deactivate api
+@enduml

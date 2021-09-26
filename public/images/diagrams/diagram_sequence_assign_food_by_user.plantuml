@@ -3,7 +3,7 @@
 actor "Actor"
 boundary "api"
 control "FoodController"
-entity "Food"
+entity "FoodUser"
 database "food_user"
 
 "Actor" ->  "api" : /api/food/assign
@@ -11,14 +11,14 @@ activate api
 "api" -> "FoodController" : assign()
 activate FoodController
 "FoodController" ->  "FoodController" : FormValidation()
-"FoodController" ->  "Food" : create()
-activate Food
-"Food" ->  "food_user" : insert or update
+"FoodController" ->  "FoodUser" : create()
+activate FoodUser
+"FoodUser" ->  "food_user" : insert or update
 activate food_user
-"food_user" --> "Food" : data
+"food_user" --> "FoodUser" : data
 deactivate food_user
-"Food" --> "FoodController": data
-deactivate Food
+"FoodUser" --> "FoodController": data
+deactivate FoodUser
 "FoodController" --> "api" : return data with status HTTP 200
 deactivate FoodController
 deactivate api

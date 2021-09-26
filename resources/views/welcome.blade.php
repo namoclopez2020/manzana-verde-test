@@ -152,6 +152,22 @@
                             <br>
                             <hr>
                             <div class="ml-12">
+                                <h4> -> Crear una nueva comida</h4>
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-base font-semibold d-flex justify-content-center">
+                                    <img src="{{asset('images/diagrams/diagram_sequence_create_food.png')}}" class="img-fluid" alt="Responsive image">
+                                </div>
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="ml-12">
+                                <h4> -> Generar una nueva imagen</h4>
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-base font-semibold d-flex justify-content-center">
+                                    <img src="{{asset('images/diagrams/diagram_sequence_generate_image.png')}}" class="img-fluid" alt="Responsive image">
+                                </div>
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="ml-12">
                                 <h4> -> Lista de comidas no asociadas al usuario</h4>
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-base font-semibold d-flex justify-content-center">
                                     <img src="{{asset('images/diagrams/diagram_sequence_unselected_food_list.png')}}" class="img-fluid" alt="Responsive image">
@@ -217,7 +233,7 @@ const axiosIns = axios.create({
     referrerPolicy: 'no-referrer', 
 })
 
-axiosIns.get('/api/food/list?per_page=10&current_page=1')
+axiosIns.get('/api/food/list?per_page=10&amp;current_page=1')
 .then( (res) => {
     console.log('response',res);
 });
@@ -323,6 +339,76 @@ axiosIns.get('/api/food/list?per_page=10&current_page=1')
 <code>
     {
         "message": "User successfully signed out"
+    }
+</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <hr>
+                                    <div class="text-lg leading-7 font-semibold">
+                                        /api/food/create (POST) // Para crear una nueva comida
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="ml-4 text-base leading-7 font-semibold">
+                                            Request:
+                                            <pre>
+        <code>
+            {
+                "name" : "Nueva comida",
+                "description" : "Descripcion de nueva comida"
+                "picture" : "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&h=350"
+            }
+        </code>
+                                            </pre>
+                                            Response:
+                                            <pre>
+        <code>
+            {
+                "data": {
+                    "message": "Comida creada correctamente"
+                }
+            }
+        </code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <hr>
+                                    <div class="text-lg leading-7 font-semibold">
+                                        /api/food/generate_image (GET) // Para generar una imagen de comida
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="ml-4 text-base leading-7 font-semibold">
+                                            Ejemplo de URL: <code>https://josenamoc-manzana-verde-api.herokuapp.com/api/food/generate_image?food=pizza</code>
+                                            <br>
+                                            Response:
+                                            <pre>
+<code>
+    {
+        "data": {
+            "image_url": {
+                "id": 1260968,
+                "width": 2640,
+                "height": 3960,
+                "url": "https://www.pexels.com/photo/baked-pizza-with-basil-leaves-1260968/",
+                "photographer": "Daria Shevtsova",
+                "photographer_url": "https://www.pexels.com/@daria",
+                "photographer_id": 220024,
+                "avg_color": "#887C5E",
+                "src": {
+                    "original": "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg",
+                    "large2x": "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                    "large": "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                    "medium": "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&h=350",
+                    "small": "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&h=130",
+                    "portrait": "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "landscape": "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+                    "tiny": "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280"
+                },
+                "liked": false
+            }
+        }
     }
 </code>
                                             </pre>
