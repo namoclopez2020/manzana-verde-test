@@ -201,7 +201,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9tYW56YW5hLXZlcmRlLXRlc3QudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzMjUxOTM0NywiZXhwIjoxNjMyNTIyOTQ3LCJuYmYiOjE2MzI1MTkzNDcsImp0aSI6IlE4aVBmcFo3VzB5NElybk8iLCJzdWIiOjExLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.zWs5fSkHERUxCCcHN0Uwt0CxlXFlbJYvmfpiFgBw1xo",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qb3NlbmFtb2MtbWFuemFuYS12ZXJkZS1hcGkuaGVyb2t1YXBwLmNvbVwvYXBpXC9hdXRoXC9yZWdpc3RlciIsImlhdCI6MTYzMjYyNTIyNCwiZXhwIjoxNjMyNjI4ODI0LCJuYmYiOjE2MzI2MjUyMjQsImp0aSI6Ikt4WGlkc0FaRTU4TzNROGIiLCJzdWIiOjEyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LbGbxoOI68Kds4Faa1n2Go5OC6SKcQGyDImk7_3I6G4",
 									"type": "string"
 								}
 							]
@@ -230,6 +230,65 @@
 								"api",
 								"food",
 								"assign"
+							],
+							"query": [
+								{
+									"key": "food_id",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create food",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qb3NlbmFtb2MtbWFuemFuYS12ZXJkZS1hcGkuaGVyb2t1YXBwLmNvbVwvYXBpXC9hdXRoXC9yZWdpc3RlciIsImlhdCI6MTYzMjYyNTIyNCwiZXhwIjoxNjMyNjI4ODI0LCJuYmYiOjE2MzI2MjUyMjQsImp0aSI6Ikt4WGlkc0FaRTU4TzNROGIiLCJzdWIiOjEyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LbGbxoOI68Kds4Faa1n2Go5OC6SKcQGyDImk7_3I6G4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "asdas",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "sdfdsf",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"value": "https://www.pexels.com/photo/scenic-view-of-the-mountains-with-melting-glaciers-flowing-the-the-slopes-1993246/",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/create",
+							"protocol": "https",
+							"host": [
+								"josenamoc-manzana-verde-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"food",
+								"create"
 							],
 							"query": [
 								{
@@ -320,6 +379,44 @@
 								{
 									"key": "page",
 									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generate image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9tYW56YW5hLXZlcmRlLXRlc3QudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzMjYyNDM1NywiZXhwIjoxNjMyNjI3OTU3LCJuYmYiOjE2MzI2MjQzNTcsImp0aSI6ImQwdFdKZmxBSVNDanpnYk0iLCJzdWIiOjExLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LhHZ0sGbxXV0a-nyeMapqyqlWWEA29cvijT2t4thhpk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://josenamoc-manzana-verde-api.herokuapp.com/api/food/generate_image?food=pizza",
+							"protocol": "https",
+							"host": [
+								"josenamoc-manzana-verde-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"food",
+								"generate_image"
+							],
+							"query": [
+								{
+									"key": "food",
+									"value": "pizza"
 								}
 							]
 						}
